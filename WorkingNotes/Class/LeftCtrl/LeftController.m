@@ -29,16 +29,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //1.添加一个DockItem即供选择的栏目，传入icon图片和选中时的图片名称
-    [self setTitle:@"学生个人信息" iconName:@"user" ];
-    
-    //将button里的icon传入，有两个状态普通和被选中状态
+    // 需要在主线程里添加
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //1.添加一个DockItem即供选择的栏目，传入icon图片和选中时的图片名称
+        [self setTitle:@"学生个人信息" iconName:@"user" ];
+        
+        //将button里的icon传入，有两个状态普通和被选中状态
+        
+        [self setTitle:@"点到" iconName:@"file"];
+        
+        [self setTitle:@"聊天论坛" iconName:@"star"];
+        
+        //
+        //    [self setTitle:@"其他" iconName:@"info"];
+    });
 
-    [self setTitle:@"点到" iconName:@"file"];
-    
-    [self setTitle:@"聊天论坛" iconName:@"star"];
-//    
-//    [self setTitle:@"其他" iconName:@"info"];
 }
 #pragma mark - 私有方法,添加一个选项卡
 - (void)setTitle:(NSString *)title iconName:(NSString *)iconName

@@ -59,7 +59,7 @@
     NSString *path = [self getFileWithFileName:name];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL result = [fileManager fileExistsAtPath:path];
-    NSLog(@"%d",result);
+    NSLog(@"result = %d",result);
     return result;
 }
 #pragma mark - 加载JSON
